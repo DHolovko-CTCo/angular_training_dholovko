@@ -1,0 +1,6 @@
+<div *ngIf="posts$ | async">
+    <div *ngFor="let post of posts$ | async">
+        <p><strong>{{ post.title }}</strong></p>
+        <p>{{ post.body }}</p>
+    </div>
+</div>
