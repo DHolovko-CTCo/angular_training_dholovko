@@ -20,9 +20,8 @@ const blogpostRoutes: Routes = [
     CommonModule,
     RouterModule.forChild(blogpostRoutes),
     StoreModule.forFeature('posts', blogpostReducer),
-    EffectsModule.forFeature([BlogpostEffects])
-  ],
-  declarations: [PostListComponent],
-  exports: [PostListComponent]
+    EffectsModule.forFeature([BlogpostEffects]),
+    PostListComponent
+  ]
 })
 export class BlogpostModule { }
