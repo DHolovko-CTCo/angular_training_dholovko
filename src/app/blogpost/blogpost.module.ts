@@ -1,12 +1,12 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 /* NgRx */
-import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import { blogpostReducer } from '../state/blogpost/blogpost.reducer';
+import { StoreModule } from '@ngrx/store';
 import { BlogpostEffects } from '../state/blogpost/blogpost.effects';
+import { blogpostReducer } from '../state/blogpost/blogpost.reducer';
 import { PostListComponent } from './post-list/post-list.component';
 
 const blogpostRoutes: Routes = [

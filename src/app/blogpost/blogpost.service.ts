@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { catchError, throwError, Observable } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { catchError, Observable } from 'rxjs';
 import { Post } from './post';
 
 @Injectable({

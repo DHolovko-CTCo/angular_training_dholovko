@@ -1,4 +1,4 @@
-import * as PostPageActions from './post-page.actions';
 import * as PostApiActions from './post-api.actions';
+import * as PostPageActions from './post-page.actions';
 
-export { PostPageActions, PostApiActions };
+export { PostApiActions, PostPageActions };

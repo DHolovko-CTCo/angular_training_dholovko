@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { map, mergeMap } from 'rxjs/operators';
-import { Post } from 'src/app/blogpost/post';
+import { map, switchMap } from 'rxjs/operators';
 import { BlogpostService } from 'src/app/blogpost/blogpost.service';
 
 /* NgRx */
@@ -17,7 +16,7 @@ export class BlogpostEffects {
   loadPosts$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(PostPageActions.loadPosts),
-      mergeMap(() =>
+      switchMap(() =>
         this.blogpostService.getPosts().pipe(
           map((posts) => PostApiActions.loadPostsSuccess({ posts }))
           // maybe implement something for err handling later

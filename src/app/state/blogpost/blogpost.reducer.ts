@@ -1,7 +1,7 @@
 /* NgRx */
 import { createReducer, on } from '@ngrx/store';
+import { PostApiActions } from './actions';
 import { BlogpostState } from './blogpost.state';
-import { PostApiActions, PostPageActions } from './actions';
 
 const initialState: BlogpostState = {
     posts: []
