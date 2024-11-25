@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable } from 'rxjs';
 import { Post } from './post';
@@ -17,18 +17,17 @@ export class BlogpostService {
       .pipe(catchError(this.handleError));
   }
 
-  handleError(err: any) {
+  handleError(err: HttpErrorResponse) {
     let errorMessage: string;
     if (err.error instanceof ErrorEvent) {
       errorMessage = `An error occurred: ${err.error.message}`;
     } else {
-      errorMessage = `Backend returned code ${err.status}: ${err.body.error}`;
+      errorMessage = `Backend returned code ${err.status}: ${err.error}`;
     }
-
-    console.error(err);
 
     // just suppress any errors for now, will deal with them later, maybe
     // return throwError(() => new Error(errorMessage));
+    console.error(errorMessage);
     return new Observable<Post[]>();
   }
 }
