@@ -3,7 +3,7 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 import { Store } from '@ngrx/store';
-import { PostPageActions } from 'src/app/state/blogpost/actions';
+import { PostActions } from 'src/app/state/blogpost/actions';
 import { getPosts } from 'src/app/state/blogpost/blogpost.selectors';
 import { State } from 'src/app/state/blogpost/blogpost.state';
 
@@ -21,7 +21,7 @@ export class PostListComponent implements OnInit {
   constructor(private store: Store<State>) { }
 
   ngOnInit(): void {
-    this.store.dispatch(PostPageActions.loadPosts());
+    this.store.dispatch(PostActions.loadPosts());
   }
 
 }

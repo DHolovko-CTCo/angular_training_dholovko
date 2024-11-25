@@ -4,7 +4,7 @@ import { BlogpostService } from 'src/app/blogpost/blogpost.service';
 
 /* NgRx */
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import { PostApiActions, PostPageActions } from './actions';
+import { PostActions } from './actions';
 
 @Injectable()
 export class BlogpostEffects {
@@ -15,10 +15,10 @@ export class BlogpostEffects {
 
   loadPosts$ = createEffect(() => {
     return this.actions$.pipe(
-      ofType(PostPageActions.loadPosts),
+      ofType(PostActions.loadPosts),
       switchMap(() =>
         this.blogpostService.getPosts().pipe(
-          map((posts) => PostApiActions.loadPostsSuccess({ posts }))
+          map((posts) => PostActions.loadPostsSuccess({ posts }))
           // maybe implement something for err handling later
           // catchError(error => of(PostApiActions.loadPostsFailure({ error }))
         )
