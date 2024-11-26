@@ -14,6 +14,9 @@
           <mat-panel-title>{{ post.title }}</mat-panel-title>
         </mat-expansion-panel-header>
         <p>{{ post.body }}</p>
+        <mat-action-row>
+          <button mat-flat-button color="primary" [routerLink]="[post.id]">Comments</button>
+        </mat-action-row>
       </mat-expansion-panel>
     </div>
   </div>
