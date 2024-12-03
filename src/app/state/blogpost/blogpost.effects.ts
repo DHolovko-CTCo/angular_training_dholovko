@@ -36,7 +36,7 @@ export class BlogpostEffects {
               map((comments) => ({
                 ...post,
                 comments,
-              }))
+              })),
             )
           ),
           map((post) => PostActions.loadPostSuccess({ post: post }))
