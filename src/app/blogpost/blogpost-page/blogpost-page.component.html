@@ -1,0 +1,10 @@
+<div>
+    <bpt-top-bar-menu></bpt-top-bar-menu>
+</div>
+<div>
+  <bpt-post-list *ngIf="!(postId$ | async)"></bpt-post-list>
+  <bpt-post-details
+    *ngIf="postId$ | async as postId"
+    [postId]="postId"
+  ></bpt-post-details>
+</div>
