@@ -1,18 +1,19 @@
 <div>
-    <h1>{{ post.title }}</h1>
-    <p>{{ post.body }}</p>
+  <h1>{{ post.title }}</h1>
+  <p>{{ post.body }}</p>
 
-    <div>
-      <h2 class="comments-heading">Commentary</h2>
-      <mat-list *ngIf="post.comments as comments">
-        <div *ngFor="let comment of comments; let last = last">
-          <mat-list-item>
-            <span matListItemTitle>{{ comment.name }}</span>
-            <span matListItemLine>{{ comment.body }}</span>
-            <span matListItemLine>Posted by: {{ comment.email }}</span>
-          </mat-list-item>
-          <mat-divider *ngIf="!last"></mat-divider>
-        </div>
-      </mat-list>
-    </div>
+  <div>
+    <h2 class="comments-heading">Commentary</h2>
+    <mat-progress-bar *ngIf="!post.comments" mode="query"></mat-progress-bar>
+    <mat-list *ngIf="post.comments as comments">
+      <div *ngFor="let comment of comments; let last = last">
+        <mat-list-item>
+          <span matListItemTitle>{{ comment.name }}</span>
+          <span matListItemLine>{{ comment.body }}</span>
+          <span matListItemLine>Posted by: {{ comment.email }}</span>
+        </mat-list-item>
+        <mat-divider *ngIf="!last"></mat-divider>
+      </div>
+    </mat-list>
+  </div>
 </div>
