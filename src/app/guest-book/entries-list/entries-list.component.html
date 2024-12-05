@@ -1,5 +1,5 @@
 <div>
-  <div *ngif="entries$ | async">
+  <div *ngIf="!(entries$ | async)">
     <mat-progress-bar mode="query"></mat-progress-bar>
   </div>
   <div class="entries-grid" *ngIf="entries$ | async as entries">

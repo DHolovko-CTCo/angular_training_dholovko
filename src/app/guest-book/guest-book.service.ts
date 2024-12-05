@@ -22,11 +22,11 @@ export class GuestBookService {
     return this.entriesSubject.asObservable();
   }
 
-  addEntry(author: string, message: string): Observable<Entry[]> {
+  addEntry(entry: Entry): Observable<Entry[]> {
     let entries = this.entriesSubject.getValue();
-    const id = entries.length + 1;
+    entry.id = entries.length + 1;
 
-    entries = [...entries, { id, author, message }];
+    entries = [...entries, entry];
 
     localStorage.setItem(this.storeKey, JSON.stringify(entries));
 

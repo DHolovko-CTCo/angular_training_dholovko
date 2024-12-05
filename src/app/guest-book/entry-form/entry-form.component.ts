@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { GuestBookService } from '../guest-book.service';
 
 @Component({
@@ -8,18 +8,22 @@ import { GuestBookService } from '../guest-book.service';
   styleUrls: ['./entry-form.component.scss'],
 })
 export class EntryFormComponent {
-  readonly author = new FormControl('', [Validators.required, Validators.email]);
-  readonly message = new FormControl('', [Validators.required, Validators.minLength(20)]);
+  readonly form = new FormGroup({
+    author: new FormControl('', [Validators.required, Validators.email]),
+    message: new FormControl('', [Validators.required, Validators.minLength(20)]),
+  });
 
-  constructor(private guestBookService: GuestBookService) {};
+  constructor(private guestBookService: GuestBookService) {}
 
   onSubmit(): void {
-    console.log(this.author, this.message);
-
-    if (this.author.invalid || this.message.invalid) {
+    if (this.form.invalid) {
       return;
     }
 
-    this.guestBookService.addEntry(this.author.value!, this.message.value!);
+    this.guestBookService.addEntry({
+      id: null,
+      author: this.form.controls.author.value!,
+      message: this.form.controls.message.value!,
+    });
   }
 }
