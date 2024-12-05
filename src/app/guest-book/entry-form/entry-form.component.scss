@@ -1,0 +1,9 @@
+.form-container {
+    padding: 1em;
+}
+
+.form-container form {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+}
