@@ -1,0 +1,11 @@
+<div>
+  <div *ngIf="!(entries$ | async)">
+    <mat-progress-bar mode="query"></mat-progress-bar>
+  </div>
+  <div class="entries-grid" *ngIf="entries$ | async as entries">
+    <bpt-entry-details
+      *ngFor="let entry of entries"
+      [entry]="entry"
+    ></bpt-entry-details>
+  </div>
+</div>

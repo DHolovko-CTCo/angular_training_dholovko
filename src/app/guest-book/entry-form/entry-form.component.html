@@ -1,0 +1,39 @@
+<mat-card appearance="outlined">
+  <mat-card-header>
+    <mat-card-title>Add a new entry</mat-card-title>
+  </mat-card-header>
+  <mat-card-content class="form-container">
+    <form>
+      <mat-form-field appearance="outline">
+        <mat-label>Email</mat-label>
+        <input matInput [formControl]="form.controls.author" />
+        <mat-error *ngIf="form.controls.author.invalid">
+          <span *ngIf="form.controls.author.hasError('required')">Email is required.</span>
+          <span *ngIf="form.controls.author.hasError('email')">Email should conform to the general email format.</span>
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline">
+        <mat-label>Message</mat-label>
+        <input matInput [formControl]="form.controls.message" />
+        <mat-error *ngIf="form.controls.message.invalid">
+          <span *ngIf="form.controls.message.hasError('required')">Message is required.</span>
+          <span *ngIf="form.controls.message.hasError('minlength')">
+            Message should be at least
+            {{form.controls.message.getError('minlength')['requiredLength']}}
+            characters long.
+          </span>
+        </mat-error>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+  <mat-card-actions>
+    <button
+      mat-button
+      color="primary"
+      (click)="onSubmit()"
+      [disabled]="!form.valid"
+    >
+      Submit
+    </button>
+  </mat-card-actions>
+</mat-card>
