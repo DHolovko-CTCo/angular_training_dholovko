@@ -1,10 +1,10 @@
-import { Post } from 'src/app/blogpost/post';
+import { Post } from 'src/app/blogpost/models';
 import * as AppState from '../app.state';
 
 export interface BlogpostState {
-    posts: Post[];
+  posts: { [id: number]: Post };
 }
 
 export interface State extends AppState.State {
-    blogpost: BlogpostState;
+  blogpost: BlogpostState;
 }

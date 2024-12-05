@@ -1,0 +1,11 @@
+<div class="post-details">
+  <div class="navigation">
+    <button mat-flat-button color="primary" [routerLink]="'/posts'">Back</button>
+  </div>
+  <div *ngIf="!(post$ | async)">
+    <mat-progress-bar mode="query"></mat-progress-bar>
+  </div>
+  <div *ngIf="post$ | async as post">
+    <bpt-post-view [post]="post"></bpt-post-view>
+  </div>
+</div>
