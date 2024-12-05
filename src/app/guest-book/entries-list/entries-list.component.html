@@ -6,6 +6,7 @@
     <bpt-entry-details
       *ngFor="let entry of entries"
       [entry]="entry"
+      (authorClick)="onAuthorClick($event)"
     ></bpt-entry-details>
   </div>
 </div>

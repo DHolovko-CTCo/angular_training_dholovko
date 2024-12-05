@@ -1,6 +1,42 @@
-@import '~@angular/material/prebuilt-themes/indigo-pink.css';
+@use "@angular/material" as mat;
+@include mat.core();
 
-/* You can add global styles to this file, and also import other style files */
+$primary: mat.define-palette(mat.$deep-purple-palette);
+$accent: mat.define-palette(mat.$pink-palette);
+$warn: mat.define-palette(mat.$red-palette);
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+$theme: mat.define-light-theme(
+  (
+    color: (
+      primary: $primary,
+      accent: $accent,
+      warn: $warn,
+    ),
+  )
+);
+
+@include mat.all-component-themes($theme);
+
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+:root {
+  --primary-color: #{mat.get-color-from-palette($primary)};
+  --primary-color-contrast: #{mat.get-color-from-palette($primary, 100)};
+  --accent-color: #{mat.get-color-from-palette($accent, A200)};
+  --accent-color-contrast: #{mat.get-color-from-palette($accent, A100)};
+  --warn-color: #{mat.get-color-from-palette($warn)};
+  --warn-color-contrast: #{mat.get-color-from-palette($warn, 100)};
+  --background-color: #{mat.get-color-from-palette(mat.$grey-palette, 50)};
+  --foreground-color: #{mat.get-color-from-palette(mat.$grey-palette, 900)};
+}
+
+.mat-mdc-dialog-container .mdc-dialog__title {
+  color: var(--primary-color) !important;
+}
