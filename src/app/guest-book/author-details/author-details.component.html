@@ -1,0 +1,14 @@
+<h2 mat-dialog-title>Author's Details</h2>
+<mat-dialog-content class="dialog-content">
+  <div class="profile">
+    <div class="avatar">
+      <img mat-card-image alt="Avatar" [src]="authorEmail | gravatarSource" />
+    </div>
+    <div class="author-name">
+      <p>{{ authorEmail }}</p>
+    </div>
+  </div>
+  <div class="biography">
+    <p>{{ authorEmail | generatedBiography }}</p>
+  </div>
+</mat-dialog-content>

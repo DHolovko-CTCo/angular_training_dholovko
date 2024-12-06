@@ -1,0 +1,11 @@
+.author {
+  color: var(--accent-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  cursor: pointer;
+
+  &:hover {
+    color: var(--accent-color-contrast);
+  }
+}

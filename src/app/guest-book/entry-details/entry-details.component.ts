@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Entry } from '../models';
 
 @Component({
@@ -8,4 +8,9 @@ import { Entry } from '../models';
 })
 export class EntryDetailsComponent {
   @Input() entry!: Entry;
+  @Output() authorClick = new EventEmitter<string>();
+
+  onAuthorClick(): void {
+    this.authorClick.emit(this.entry.author);
+  }
 }
