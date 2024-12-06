@@ -2,13 +2,13 @@
 <mat-dialog-content class="dialog-content">
   <div class="profile">
     <div class="avatar">
-      <img mat-card-image alt="Avatar" [src]="generateGravatarSource()" />
+      <img mat-card-image alt="Avatar" [src]="authorEmail | gravatarSource" />
     </div>
     <div class="author-name">
       <p>{{ authorEmail }}</p>
     </div>
   </div>
   <div class="biography">
-    <p>{{ generateBio() }}</p>
+    <p>{{ authorEmail | generatedBiography }}</p>
   </div>
 </mat-dialog-content>

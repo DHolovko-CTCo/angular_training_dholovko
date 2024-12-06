@@ -18,6 +18,8 @@ import { EntryFormComponent } from './entry-form/entry-form.component';
 import { GuestBookPageComponent } from './guest-book-page/guest-book-page.component';
 import { AuthorDetailsComponent } from './author-details/author-details.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { GravatarSourcePipe } from './pipes/gravatar-source.pipe';
+import { GeneratedBiographyPipe } from './pipes/generated-biography.pipe';
 
 const guestBookRoutes: Routes = [
   { path: '**', component: GuestBookPageComponent },
@@ -30,6 +32,8 @@ const guestBookRoutes: Routes = [
     EntryFormComponent,
     GuestBookPageComponent,
     AuthorDetailsComponent,
+    GravatarSourcePipe,
+    GeneratedBiographyPipe,
   ],
   imports: [
     CommonModule,
